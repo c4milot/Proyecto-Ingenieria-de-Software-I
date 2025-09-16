@@ -1,5 +1,5 @@
 # Proyecto-Ingeniería-de-Software-I
-> Gupo 6
+> Grupo 6
 ### Integrantes:
 - Natalia Belén Contreras Aliaga
 - Benjamín Antonio Puerta Pinto
