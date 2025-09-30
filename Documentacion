@@ -20,16 +20,15 @@ Paso1' (La modificacion que se quiere realizar a ruta no esta dentro del area ab
 
 
 
-Caso de uso 2:  
-Actor principal: 
+Caso de uso 2: Elegir tipo de retiro 
+Actor principal: Usuario
 Actores involucrados e intereses: 
--: 
--: 
-Precondiciones: 
-Postcondiciones (garantias de exito): 
+-Usuario: Seleccionar el tipo de retiro 
+-Recolectores: Conocer que tipo de retiro deberan hacer 
+Precondiciones: Usuario debe haber creado una solicitud de retiro
+Postcondiciones (garantias de exito): Solicitud completada y agregada a sistema
 Escenario principal de exito (flujo basico):
-1. 
-2. 
-Extensiones (Flujos alternativos): 
-Paso1' ()
--
+1. Usuario crea solicitud de retiro
+2. Sistema consulta que tipo de retiro le acomoda
+3. Usuario elige el tipo de retiro
+4. Sistema crea la solicitud de retiro
