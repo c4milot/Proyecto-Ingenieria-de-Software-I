@@ -1,21 +1,26 @@
-Caso de uso UCX: Modificar ruta asignada
+Caso de uso 1: Modificar ruta asignada
 Actor principal: Coordinador
-Actores involucrados e intereses: 
+Actores involucrados e intereses:
+-Coordinador: Desea modificar ruta
 -Recolector: Cambia su ruta a seguir
 -API: Actualiza ruta
 Precondiciones: API debe haber generado una ruta con anterioridad
 Postcondiciones (garantias de exito): Sistema con nueva ruta actualizada
 Escenario principal de exito (flujo basico):
-1. La ruta se modifica segun requerimiento
-2. La ruta se actualzia para demas actores
+1.Coordinador desea cambio en ruta generada
+2.Coordinador solicita a sistema realizar cambio en la ruta generada por defecto
+3.Sistema permite agregar manualmente un nuevo punto por visitar en ruta
+4.Sistema verifica factibilidad de considerar el punto solicitado
+5.La ruta se modifica segun requerimiento
+6.La ruta se actualzia para demas actores
 Extensiones (Flujos alternativos): 
 Paso1' (La modificacion que se quiere realizar a ruta no esta dentro del area abarcada por la division o empresa)
--Se consulta si hay requerimiento de ruta excepcional
+-Se consulta si hay requerimiento de ruta excepcional, en caso de ser asi se vuevle al flujo principal
 -Se cancela modificacion y se pregunta si se requiere una nueva
 
 
 
-Caso de uso UCX: 
+Caso de uso 2:  
 Actor principal: 
 Actores involucrados e intereses: 
 -: 
