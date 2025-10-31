@@ -1,0 +1,64 @@
+Caso de uso 1: Asignar ruta
+
+Actor principal: Coordinador
+
+Actores involucrados e intereses:
+Coordinador: Desea generar rutas eficientes para asignarlas a los recolectores.
+Recolector: Recibe y ejecuta la ruta asignada.
+API: Valida la ubicación de los puntos de retiro y colabora en la generación automática de rutas.
+
+Precondiciones:
+
+Deben existir solicitudes de retiro registradas y validadas por ubicación.
+La API debe estar disponible para procesar los datos de las solicitudes.
+
+Postcondiciones (garantías de éxito):
+Las rutas de recolección quedan asignadas correctamente a los recolectores.
+El sistema actualiza el estado de las solicitudes a “pendiente de retiro”.
+
+Escenario principal de éxito (flujo básico):
+1.-El coordinador solicita la generación de rutas de recolección.
+2.-El sistema consulta las solicitudes pendientes y sus ubicaciones.
+3.-El sistema se comunica con la API para validar direcciones y generar rutas optimizadas.
+4.-El sistema agrupa las solicitudes por zona y produce rutas eficientes.
+5.-El coordinador revisa las rutas generadas y las asigna a los recolectores disponibles.
+6.-El sistema registra las rutas asignadas y notifica a los recolectores correspondientes.
+
+Extensiones (flujos alternativos):
+
+Paso 3': La API no responde o presenta error → El sistema notifica al coordinador y permite la creación manual de rutas.
+Paso 5': El coordinador desea realizar ajustes en una ruta generada → se activa el caso de uso “Modificar ruta asignada”.
+
+
+Caso de uso 2: Modificar ruta asignada
+
+Actor principal: Coordinador de ruta
+
+Actores involucrados e intereses:
+
+Coordinador: Desea actualizar una ruta previamente asignada.
+Recolector: Recibe la nueva ruta actualizada.
+API: Valida la factibilidad de los nuevos puntos de recolección o cambios propuestos.
+
+Precondiciones:
+
+Debe existir una ruta previamente generada y asignada.
+El coordinador debe tener permisos para modificar la ruta.
+
+Postcondiciones (garantías de éxito):
+
+1.-La ruta modificada se actualiza en el sistema y en los dispositivos de los recolectores.
+2.-Las solicitudes afectadas se actualizan con la nueva información de recolección.
+3.-Escenario principal de éxito (flujo básico):
+4.-El coordinador selecciona una ruta previamente asignada.
+5.-El sistema muestra los puntos de recolección actuales y su orden.
+6.-El coordinador agrega, elimina o reordena puntos dentro de la ruta.
+7.-El sistema consulta la API para validar los nuevos puntos o trayectos.
+8.-El sistema recalcula la ruta optimizada considerando los cambios realizados.
+9.-El sistema actualiza la ruta asignada y notifica al recolector correspondiente.
+
+Extensiones (flujos alternativos):
+
+Paso 3': El coordinador intenta agregar un punto fuera del área asignada → el sistema muestra una advertencia y solicita confirmación.
+Paso 4': La API no puede validar una ubicación → el sistema informa el error y permite ingresar la dirección manualmente.
+Paso 5': El coordinador cancela los cambios → el sistema mantiene la ruta original sin modificaciones.
