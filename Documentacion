@@ -1,4 +1,33 @@
-Caso de uso 1: Modificar ruta asignada
+Caso de uso 1: Asignar ruta
+
+Actor principal: Coordinador
+
+Actores involucrados e intereses:
+Coordinador: Desea generar rutas eficientes para asignarlas a los recolectores.
+Recolector: Recibe y ejecuta la ruta asignada.
+API: Valida la ubicación de los puntos de retiro y colabora en la generación automática de rutas.
+
+Precondiciones:
+Deben existir solicitudes de retiro registradas y validadas por ubicación.
+La API debe estar disponible para procesar los datos de las solicitudes.
+
+Postcondiciones (garantías de éxito):
+Las rutas de recolección quedan asignadas correctamente a los recolectores.
+El sistema actualiza el estado de las solicitudes a “pendiente de retiro”.
+
+Escenario principal de éxito (flujo básico):
+1.-El coordinador solicita la generación de rutas de recolección.
+2.-El sistema consulta las solicitudes pendientes y sus ubicaciones.
+3.-El sistema se comunica con la API para validar direcciones y generar rutas optimizadas.
+4.-El sistema agrupa las solicitudes por zona y produce rutas eficientes.
+5.-El coordinador revisa las rutas generadas y las asigna a los recolectores disponibles.
+6.-El sistema registra las rutas asignadas y notifica a los recolectores correspondientes.
+
+Extensiones (flujos alternativos):
+Paso 3': La API no responde o presenta error → El sistema notifica al coordinador y permite la creación manual de rutas.
+Paso 5': El coordinador desea realizar ajustes en una ruta generada → se activa el caso de uso “Modificar ruta asignada”.
+
+Caso de uso 12: Modificar ruta asignada
 Actor principal: Coordinador
 Actores involucrados e intereses:
 -Coordinador: Desea modificar ruta
@@ -17,18 +46,3 @@ Extensiones (Flujos alternativos):
 Paso1' (La modificacion que se quiere realizar a ruta no esta dentro del area abarcada por la division o empresa)
 -Se consulta si hay requerimiento de ruta excepcional, en caso de ser asi se vuevle al flujo principal
 -Se cancela modificacion y se pregunta si se requiere una nueva
-
-
-
-Caso de uso 2: Elegir tipo de retiro 
-Actor principal: Usuario
-Actores involucrados e intereses: 
--Usuario: Seleccionar el tipo de retiro 
--Recolectores: Conocer que tipo de retiro deberan hacer 
-Precondiciones: Usuario debe haber creado una solicitud de retiro
-Postcondiciones (garantias de exito): Solicitud completada y agregada a sistema
-Escenario principal de exito (flujo basico):
-1. Usuario crea solicitud de retiro
-2. Sistema consulta que tipo de retiro le acomoda
-3. Usuario elige el tipo de retiro
-4. Sistema crea la solicitud de retiro
