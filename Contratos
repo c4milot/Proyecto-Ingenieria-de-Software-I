@@ -54,4 +54,5 @@ Excepciones:
 Salida: Ruta optimizada asignada a recolector.
 Precondiciones: Existe una ruta creada anteriormente.
 Postcondiciones: 
-- Se asignó una nueva ruta óptima a un recolector.
+- Se asignó una nueva ruta óptima a recolector.
+- Se notificó sobre ruta asignada a recolector.
