@@ -43,3 +43,15 @@ Postcondiciones:
 - Se generó una nueva ruta óptima con la modificación agregada.
 - Se entregó nueva ruta al sistema.
 - Se notificó modificación de nueva ruta al recolector y coordinador.
+
+--------------------------------------------------------------------------------------------
+
+Nombre: asignarRuta(ruta)
+Responsabilidades: Solicita asignar ruta óptima anteriormente creada a recolector.
+Referencias: Caso de Uso: Asignar ruta.
+Notas: Se le solicita al sistema automáticamente asignar rutas.
+Excepciones:
+Salida: Ruta optimizada asignada a recolector.
+Precondiciones: Existe una ruta creada anteriormente.
+Postcondiciones: 
+- Se asignó una nueva ruta óptima a un recolector.
