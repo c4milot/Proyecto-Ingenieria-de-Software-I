@@ -11,6 +11,8 @@ pasado):
 - Modificación de atributos
 - Creación y eliminación de asociaciones
 
+--------------------------------------------------------------------------------------------
+
 Nombre: optimizarRuta(punto,modificación)
 Responsabilidades: Solicita optimizar ruta luego de una modificación manual del coordinador.
 Referencias: Caso de Uso: Modificar ruta.
@@ -19,6 +21,22 @@ Excepciones: Si la ruta ya es óptima, devolver misma ruta.
 Salida: Ruta optimizada entregada al sistema.
 Precondiciones: Coordinador modifica una ruta manualmente.
 Postcondiciones: 
+- Se eliminó ruta anterior.
+- Se generó una nueva ruta óptima con la modificación agregada.
+- Se entregó nueva ruta al sistema.
+- Se notificó modificación de nueva ruta al recolector.
+
+--------------------------------------------------------------------------------------------
+
+Nombre: modificarRuta(punto,modificación)
+Responsabilidades: Solicita modificar ruta de parte del coordinador, agregando un nuevo punto de recolección.
+Referencias: Caso de Uso: Modificar ruta.
+Notas: 
+Excepciones: Se consulta si hay requerimiento de ruta excepcional, en caso de ser asi se vuelve al flujo principal.
+Salida: Ruta optimizada entregada al sistema.
+  Precondiciones: Existe una ruta creada anteriormente.
+Postcondiciones: 
+- Se validó el nuevo punto de recolección.
 - Se eliminó ruta anterior.
 - Se generó una nueva ruta óptima con la modificación agregada.
 - Se entregó nueva ruta al sistema.
