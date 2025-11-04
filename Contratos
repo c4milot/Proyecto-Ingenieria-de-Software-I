@@ -13,18 +13,20 @@ pasado):
 
 --------------------------------------------------------------------------------------------
 
-Nombre: optimizarRuta(punto,modificación)
-Responsabilidades: Solicita optimizar ruta luego de una modificación manual del coordinador.
-Referencias: Caso de Uso: Modificar ruta.
-Notas: Utiliza algoritmo de optimización de la API.
-Excepciones: Si la ruta ya es óptima, devolver misma ruta.
-Salida: Ruta optimizada entregada al sistema.
-Precondiciones: Coordinador modifica una ruta manualmente.
+Nombre: generarRuta()
+Responsabilidades: Solicita generar ruta con puntos de recolección.
+Referencias: Caso de Uso: Asignar ruta.
+Notas: Utiliza algoritmo de optimización de la API. Debe acceder a la base de datos con los puntos de recolección.
+Excepciones: El coordinador desea realizar ajustes en una
+ruta generada, se activa el caso de uso Modificar ruta
+asignada.
+Salida: Genera una ruta y la asigna a un recolector.
+Precondiciones: Existen puntos de recolección.
 Postcondiciones: 
-- Se eliminó ruta anterior.
-- Se generó una nueva ruta óptima con la modificación agregada.
+- Se generó una nueva ruta óptima.
 - Se entregó nueva ruta al sistema.
-- Se notificó modificación de nueva ruta al recolector.
+- Se notificó una nueva ruta óptima.
+- Se asignó una nueva ruta óptima a un recolector.
 
 --------------------------------------------------------------------------------------------
 
@@ -33,11 +35,11 @@ Responsabilidades: Solicita modificar ruta de parte del coordinador, agregando u
 Referencias: Caso de Uso: Modificar ruta.
 Notas: 
 Excepciones: Se consulta si hay requerimiento de ruta excepcional, en caso de ser asi se vuelve al flujo principal.
-Salida: Ruta optimizada entregada al sistema.
-  Precondiciones: Existe una ruta creada anteriormente.
+Salida: Ruta optimizada notificada al coordinador y recolector.
+Precondiciones: Existe una ruta creada anteriormente.
 Postcondiciones: 
 - Se validó el nuevo punto de recolección.
 - Se eliminó ruta anterior.
 - Se generó una nueva ruta óptima con la modificación agregada.
 - Se entregó nueva ruta al sistema.
-- Se notificó modificación de nueva ruta al recolector.
+- Se notificó modificación de nueva ruta al recolector y coordinador.
