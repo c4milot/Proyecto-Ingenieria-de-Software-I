@@ -1,48 +1,44 @@
-Caso de uso 1: Asignar ruta
+Caso de uso 1: Ingresar solicitud de retiro
 
-Actor principal: Coordinador
+Actor principal: Usuario
 
 Actores involucrados e intereses:
-Coordinador: Desea generar rutas eficientes para asignarlas a los recolectores.
-Recolector: Recibe y ejecuta la ruta asignada.
-API: Valida la ubicación de los puntos de retiro y colabora en la generación automática de rutas.
+-Usuario: Desea ingresar una solicitud de retiro.
+-API: Valida la ubicación de la solicitud.
 
 Precondiciones:
-Deben existir solicitudes de retiro registradas y validadas por ubicación.
 La API debe estar disponible para procesar los datos de las solicitudes.
 
 Postcondiciones (garantías de éxito):
-Las rutas de recolección quedan asignadas correctamente a los recolectores.
-El sistema actualiza el estado de las solicitudes a “pendiente de retiro”.
+Se ingresa una solicitud de retiro al sistema con ubicación válida y un tipo de retiro escogido por el usuario.
 
 Escenario principal de éxito (flujo básico):
-1.-El coordinador solicita la generación de rutas de recolección.
-2.-El sistema consulta las solicitudes pendientes y sus ubicaciones.
-3.-El sistema se comunica con la API para validar direcciones y generar rutas optimizadas.
-4.-El sistema agrupa las solicitudes por zona y produce rutas eficientes.
-5.-El coordinador revisa las rutas generadas y las asigna a los recolectores disponibles.
-6.-El sistema registra las rutas asignadas y notifica a los recolectores correspondientes.
+1.-El usuario comienza una solicitud de retiro eligiendo una ubicación.
+2.-El sistema consulta a la API si la ubicación es válida.
+3.-El sistema considera válida la solicitud y pregunta al usuario el tipo de retiro que desea (en persona esperando al recolector o recolección fuera de su hogar sin contacto con el recolector).
+4.-El usuario elige un tipo de retiro.
+5.-El sistema ingresa el tipo de retiro.
+6.-El sistema ingresa la solicitud de retiro.
 
 Extensiones (flujos alternativos):
-Paso 3': La API no responde o presenta error → El sistema notifica al coordinador y permite la creación manual de rutas.
-Paso 5': El coordinador desea realizar ajustes en una ruta generada → se activa el caso de uso “Modificar ruta asignada”.
+Paso 2': La API no considera válida la ubicación → El sistema notifica al usuario.
 
-Caso de uso 12: Modificar ruta asignada
-Actor principal: Coordinador
+
+
+Caso de uso 12: Elegir tipo de retiro
+
+Actor principal: Usuario
 Actores involucrados e intereses:
--Coordinador: Desea modificar ruta
--Recolector: Cambia su ruta a seguir
--API: Actualiza ruta
-Precondiciones: API debe haber generado una ruta con anterioridad
-Postcondiciones (garantias de exito): Sistema con nueva ruta actualizada
+-Usuario: Desea ingresar una solicitud de retiro con un tipo de retiro específico.
+
+Precondiciones: El usuario debe estar ingresando una solicitud de retiro con una ubicación validada.
+
+Postcondiciones (garantias de exito): Se ingresa el tipo de retiro a la solicitud de retiro.
+
 Escenario principal de exito (flujo basico):
-1.Coordinador desea cambio en ruta generada
-2.Coordinador solicita a sistema realizar cambio en la ruta generada por defecto
-3.Sistema permite agregar manualmente un nuevo punto por visitar en ruta
-4.Sistema verifica factibilidad de considerar el punto solicitado
-5.La ruta se modifica segun requerimiento
-6.La ruta se actualzia para demas actores
+1.El sistema da a escoger al usuario un tipo de retiro (en persona esperando al recolector o recolección fuera de su hogar sin contacto con el recolector).
+2.El usuario elige un tipo de recolección.
+3.El sistema ingresa el tipo de retiro a la solicitud de recolección.
+
 Extensiones (Flujos alternativos): 
-Paso1' (La modificacion que se quiere realizar a ruta no esta dentro del area abarcada por la division o empresa)
--Se consulta si hay requerimiento de ruta excepcional, en caso de ser asi se vuevle al flujo principal
--Se cancela modificacion y se pregunta si se requiere una nueva
+---
